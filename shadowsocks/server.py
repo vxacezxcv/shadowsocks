@@ -69,6 +69,8 @@ def main():
         a_config = config.copy()
         a_config['server_port'] = int(port)
         a_config['password'] = password
+        if 'port_comment' in config:
+            a_config['comment'] = config['port_comment'].get(port, None)
         logging.info("starting server at %s:%d" %
                      (a_config['server'], int(port)))
         tcp_servers.append(tcprelay.TCPRelay(a_config, dns_resolver, False))
