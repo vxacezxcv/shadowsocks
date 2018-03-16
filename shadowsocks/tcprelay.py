@@ -335,7 +335,7 @@ class TCPRelayHandler(object):
             raise Exception('can not parse header')
         addrtype, remote_addr, remote_port, header_length = header_result
         logging.info('[%s] connecting %s:%d from %s:%d' %
-                     (self._config['comment'],
+                     (self._config['comment'].decode('utf8'),
                       common.to_str(remote_addr), remote_port,
                       self._client_address[0], self._client_address[1]))
         if self._is_local is False:
